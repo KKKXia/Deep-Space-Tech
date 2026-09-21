@@ -1,4 +1,4 @@
-package com.myname.mymodid.common.machines;
+package com.kkkxia.deepspacetech.common.machines;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
 
@@ -210,14 +210,14 @@ public class MTEAddonLargeMacerator extends MTEExtendedPowerMultiBlockBase<MTEAd
             structure);
         // 注意：不能把 beginStructureBlock()/addAllCasingInfo() 接在 addInfo(...) 之后——
         // MultiblockTooltipBuilder 的方法返回的是父类型，链式调用会丢掉子类重载。
-        tt.addMachineType(StatCollector.translateToLocal("mymodid.machine.large_macerator.type"))
-            .addInfo(StatCollector.translateToLocal("mymodid.machine.large_macerator.info"))
+        tt.addMachineType(StatCollector.translateToLocal("deepspacetech.machine.large_macerator.type"))
+            .addInfo(StatCollector.translateToLocal("deepspacetech.machine.large_macerator.info"))
             .addInfo(
                 StatCollector
-                    .translateToLocalFormatted("mymodid.machine.large_macerator.parallel", PARALLELS_PER_TIER));
+                    .translateToLocalFormatted("deepspacetech.machine.large_macerator.parallel", PARALLELS_PER_TIER));
         // 结构尺寸自动取自 StructureWrapper（不需要手写 3,3,3）
         tt.beginStructureBlock();
-        tt.addController(StatCollector.translateToLocal("mymodid.machine.large_macerator.controller"));
+        tt.addController(StatCollector.translateToLocal("deepspacetech.machine.large_macerator.controller"));
         // 机壳数量与仓室列表自动生成
         tt.addAllCasingInfo();
         tt.toolTipFinisher();

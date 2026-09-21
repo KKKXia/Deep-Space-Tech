@@ -1,9 +1,9 @@
-package com.myname.mymodid;
+package com.kkkxia.deepspacetech;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.myname.mymodid.common.materials.AddonMaterialHandler;
+import com.kkkxia.deepspacetech.common.materials.AddonMaterialHandler;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -32,20 +32,22 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
  * 能量接入走 GT 的 {@code MTEHatchEnergy} 即可。
  */
 @Mod(
-    modid = MyMod.MODID,
-    name = MyMod.MOD_NAME,
+    modid = DeepSpaceTech.MODID,
+    name = DeepSpaceTech.MOD_NAME,
     version = Tags.VERSION,
     acceptedMinecraftVersions = "[1.7.10]",
     dependencies = "required-after:gregtech;" + "required-after:tectech;"
         + "required-after:structurelib;"
         + "required-after:gtnhlib;")
-public class MyMod {
+public class DeepSpaceTech {
 
-    public static final String MODID = "mymodid";
-    public static final String MOD_NAME = "MyMod";
+    public static final String MODID = "deepspacetech";
+    public static final String MOD_NAME = "Deep-Space-Tech";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "com.myname.mymodid.ClientProxy", serverSide = "com.myname.mymodid.CommonProxy")
+    @SidedProxy(
+        clientSide = "com.kkkxia.deepspacetech.ClientProxy",
+        serverSide = "com.kkkxia.deepspacetech.CommonProxy")
     public static CommonProxy proxy;
 
     /**

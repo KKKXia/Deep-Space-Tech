@@ -1,9 +1,9 @@
-package com.myname.mymodid;
+package com.kkkxia.deepspacetech;
 
-import com.myname.mymodid.common.AddonIds;
-import com.myname.mymodid.common.config.Config;
-import com.myname.mymodid.loaders.LoaderAddonMachines;
-import com.myname.mymodid.loaders.LoaderAddonRecipes;
+import com.kkkxia.deepspacetech.common.AddonIds;
+import com.kkkxia.deepspacetech.common.config.Config;
+import com.kkkxia.deepspacetech.loaders.LoaderAddonMachines;
+import com.kkkxia.deepspacetech.loaders.LoaderAddonRecipes;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;

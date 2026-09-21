@@ -1,4 +1,4 @@
-package com.myname.mymodid.common.materials;
+package com.kkkxia.deepspacetech.common.materials;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.enums.Materials;
@@ -10,7 +10,7 @@ import gregtech.api.interfaces.IMaterialHandler;
  * <p>
  * {@link IMaterialHandler} 是 GT 为 addon 预留的材料回调接口，但它的调用点在
  * {@code Materials.init()} 内部，所以本类必须在 GT 的 preInit 之前被排进
- * {@link GregTechAPI#sBeforeGTPreload}——这一步由 {@code MyMod.construction} 完成。
+ * {@link GregTechAPI#sBeforeGTPreload}——这一步由 {@code DeepSpaceTech.construction} 完成。
  *
  * <p>
  * 为什么用 {@code sBeforeGTPreload} 而不是自己的 FML preInit：
@@ -21,7 +21,7 @@ import gregtech.api.interfaces.IMaterialHandler;
 public class AddonMaterialHandler implements IMaterialHandler {
 
     /**
-     * 排入 GT 的 preload 前钩子。必须在 FML 构造期调用（见 {@code MyMod#construction}）。
+     * 排入 GT 的 preload 前钩子。必须在 FML 构造期调用（见 {@code DeepSpaceTech#construction}）。
      *
      * <p>
      * {@code sBeforeGTPreload} 是 {@code List<Runnable>}，所以这里用 lambda 包一层：

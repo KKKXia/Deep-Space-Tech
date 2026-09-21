@@ -1,12 +1,12 @@
-package com.myname.mymodid.loaders;
+package com.kkkxia.deepspacetech.loaders;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import com.myname.mymodid.MyMod;
-import com.myname.mymodid.common.AddonItemList;
-import com.myname.mymodid.common.config.Config;
-import com.myname.mymodid.common.materials.AddonMaterials;
+import com.kkkxia.deepspacetech.DeepSpaceTech;
+import com.kkkxia.deepspacetech.common.AddonItemList;
+import com.kkkxia.deepspacetech.common.config.Config;
+import com.kkkxia.deepspacetech.common.materials.AddonMaterials;
 
 import gregtech.api.casing.Casings;
 import gregtech.api.enums.GTValues;
@@ -56,7 +56,7 @@ public final class LoaderAddonRecipes {
         registerMaterialRecipes();
 
         if (Config.debugLogging) {
-            MyMod.LOG.info("Registered addon recipes");
+            DeepSpaceTech.LOG.info("Registered addon recipes");
         }
     }
 

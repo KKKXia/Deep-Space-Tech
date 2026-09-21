@@ -1,4 +1,4 @@
-package com.myname.mymodid.common;
+package com.kkkxia.deepspacetech.common;
 
 import static gregtech.api.util.GTRecipeBuilder.WILDCARD;
 

@@ -1,6 +1,6 @@
-package com.myname.mymodid.common.materials;
+package com.kkkxia.deepspacetech.common.materials;
 
-import com.myname.mymodid.MyMod;
+import com.kkkxia.deepspacetech.DeepSpaceTech;
 
 import gregtech.api.enums.MaterialBuilder;
 import gregtech.api.enums.Materials;
@@ -72,7 +72,7 @@ public final class AddonMaterials {
             .addSubTag(SubTag.SMELTING_TO_FLUID)
             .constructMaterial();
 
-        MyMod.LOG.info("Registered addon material {}", Voidsteel.mName);
+        DeepSpaceTech.LOG.info("Registered addon material {}", Voidsteel.mName);
     }
 
     /**
@@ -91,6 +91,6 @@ public final class AddonMaterials {
                 "GT did not auto-generate a fluid for " + Voidsteel.mName
                     + ". Check that addFluid() was called before GT's preload ran.");
         }
-        MyMod.LOG.info("Verified addon material {} -> fluid {}", Voidsteel.mName, Voidsteel.mFluid.getName());
+        DeepSpaceTech.LOG.info("Verified addon material {} -> fluid {}", Voidsteel.mName, Voidsteel.mFluid.getName());
     }
 }

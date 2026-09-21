@@ -1,4 +1,4 @@
-package com.myname.mymodid.common.machines;
+package com.kkkxia.deepspacetech.common.machines;
 
 import static com.gtnewhorizon.structurelib.structure.StructureUtility.transpose;
 import static gregtech.api.enums.HatchElement.Energy;
@@ -234,13 +234,14 @@ public class MTEAddonComputationLab extends TTMultiblockBase
             structure);
         // 注意：不能把 beginStructureBlock()/addAllCasingInfo() 接在 addInfo(...) 之后——
         // MultiblockTooltipBuilder 的方法返回的是父类型，链式调用会丢掉子类重载。
-        tt.addMachineType(StatCollector.translateToLocal("mymodid.machine.computation_lab.type"))
-            .addInfo(StatCollector.translateToLocal("mymodid.machine.computation_lab.info"))
+        tt.addMachineType(StatCollector.translateToLocal("deepspacetech.machine.computation_lab.type"))
+            .addInfo(StatCollector.translateToLocal("deepspacetech.machine.computation_lab.info"))
             .addInfo(
-                StatCollector
-                    .translateToLocalFormatted("mymodid.machine.computation_lab.requirement", COMPUTATION_PER_TICK));
+                StatCollector.translateToLocalFormatted(
+                    "deepspacetech.machine.computation_lab.requirement",
+                    COMPUTATION_PER_TICK));
         tt.beginStructureBlock();
-        tt.addController(StatCollector.translateToLocal("mymodid.machine.computation_lab.controller"));
+        tt.addController(StatCollector.translateToLocal("deepspacetech.machine.computation_lab.controller"));
         tt.addAllCasingInfo();
         tt.toolTipFinisher();
         return tt;

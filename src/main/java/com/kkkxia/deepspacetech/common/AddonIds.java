@@ -1,9 +1,9 @@
-package com.myname.mymodid.common;
+package com.kkkxia.deepspacetech.common;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.myname.mymodid.MyMod;
+import com.kkkxia.deepspacetech.DeepSpaceTech;
 
 import gregtech.api.GregTechAPI;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
@@ -83,9 +83,10 @@ public final class AddonIds {
         // 从高位区段往上找：addon 更适合占用高位 id，避免与 GT 后续新增的低位机器挤在一起
         final int suggestion = findFreeBlock(needed, 20000);
         if (suggestion > 0) {
-            MyMod.LOG.info("Suggested free meta tile entity id block: {}..{}", suggestion, suggestion + needed - 1);
+            DeepSpaceTech.LOG
+                .info("Suggested free meta tile entity id block: {}..{}", suggestion, suggestion + needed - 1);
         } else {
-            MyMod.LOG.warn("No free contiguous meta tile entity id block of size {} was found", needed);
+            DeepSpaceTech.LOG.warn("No free contiguous meta tile entity id block of size {} was found", needed);
         }
     }
 

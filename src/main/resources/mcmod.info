@@ -8,7 +8,7 @@
 		"mcversion": "${minecraftVersion}",
 		"url": "",
 		"updateUrl": "",
-		"authorList": [],
+		"authorList": ["kkkxia"],
 		"credits": "Built on GregTech 5 Unofficial (GTNH)",
 		"logoFile": "",
 		"screenshots": [],

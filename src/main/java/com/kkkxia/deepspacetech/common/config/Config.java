@@ -1,10 +1,10 @@
-package com.myname.mymodid.common.config;
+package com.kkkxia.deepspacetech.common.config;
 
 import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
 
-import com.myname.mymodid.MyMod;
+import com.kkkxia.deepspacetech.DeepSpaceTech;
 
 /**
  * 本 mod 配置。
@@ -36,6 +36,6 @@ public final class Config {
         if (configuration.hasChanged()) {
             configuration.save();
         }
-        MyMod.LOG.info("Configuration loaded, debugLogging={}", debugLogging);
+        DeepSpaceTech.LOG.info("Configuration loaded, debugLogging={}", debugLogging);
     }
 }

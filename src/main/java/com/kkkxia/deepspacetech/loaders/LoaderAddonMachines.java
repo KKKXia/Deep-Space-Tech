@@ -1,13 +1,13 @@
-package com.myname.mymodid.loaders;
+package com.kkkxia.deepspacetech.loaders;
 
 import java.util.Locale;
 
-import com.myname.mymodid.MyMod;
-import com.myname.mymodid.common.AddonIds;
-import com.myname.mymodid.common.AddonItemList;
-import com.myname.mymodid.common.config.Config;
-import com.myname.mymodid.common.machines.MTEAddonComputationLab;
-import com.myname.mymodid.common.machines.MTEAddonLargeMacerator;
+import com.kkkxia.deepspacetech.DeepSpaceTech;
+import com.kkkxia.deepspacetech.common.AddonIds;
+import com.kkkxia.deepspacetech.common.AddonItemList;
+import com.kkkxia.deepspacetech.common.config.Config;
+import com.kkkxia.deepspacetech.common.machines.MTEAddonComputationLab;
+import com.kkkxia.deepspacetech.common.machines.MTEAddonLargeMacerator;
 
 import gregtech.api.enums.SoundResource;
 import gregtech.api.recipe.RecipeMaps;
@@ -39,7 +39,7 @@ public final class LoaderAddonMachines {
         registerMultiBlockMachines();
 
         if (Config.debugLogging) {
-            MyMod.LOG.info("Registered {} addon meta tile entities", 4);
+            DeepSpaceTech.LOG.info("Registered {} addon meta tile entities", 4);
         }
     }
 
@@ -67,7 +67,7 @@ public final class LoaderAddonMachines {
         binding.set(
             MTEBasicMachineWithRecipeBuilder.builder(id)
                 .setName(
-                    "mymodid.machine.addon_macerator." + tierName.toLowerCase(Locale.ENGLISH),
+                    "deepspacetech.machine.addon_macerator." + tierName.toLowerCase(Locale.ENGLISH),
                     "Addon Macerator (" + tierName + ")")
                 .setTier(tier)
                 // 这里用字面量而不是 StatCollector：description 在 preInit 就被读取，
@@ -89,13 +89,13 @@ public final class LoaderAddonMachines {
         AddonItemList.Machine_Addon_Large_Macerator.set(
             new MTEAddonLargeMacerator(
                 AddonIds.MACHINE_ADDON_LARGE_MACERATOR,
-                "mymodid.multimachine.large_macerator",
+                "deepspacetech.multimachine.large_macerator",
                 "Addon Large Macerator").getStackForm(1L));
 
         AddonItemList.Machine_Addon_Computation_Lab.set(
             new MTEAddonComputationLab(
                 AddonIds.MACHINE_ADDON_COMPUTATION_LAB,
-                "mymodid.multimachine.computation_lab",
+                "deepspacetech.multimachine.computation_lab",
                 "Addon Computation Lab").getStackForm(1L));
     }
 }

@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.kkkxia.deepspacetech;
 
 /**
  * 客户端代理。
