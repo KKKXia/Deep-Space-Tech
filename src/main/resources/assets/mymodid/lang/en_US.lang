@@ -1,0 +1,25 @@
+# ------------------------------------------------------------------
+# 机器显示名
+# GT 的 MetaTileEntity 构造器会把 aNameRegional 注册到
+# "gt.blockmachines.<机器名>.name"，这里显式写出以便本地化与检索。
+# ------------------------------------------------------------------
+gt.blockmachines.mymodid.machine.addon_macerator.lv.name=Addon Macerator (LV)
+gt.blockmachines.mymodid.machine.addon_macerator.mv.name=Addon Macerator (MV)
+gt.blockmachines.mymodid.multimachine.large_macerator.name=Addon Large Macerator
+gt.blockmachines.mymodid.multimachine.computation_lab.name=Addon Computation Lab
+
+# ------------------------------------------------------------------
+# 示范 2：多方块（GT 电力系统）
+# ------------------------------------------------------------------
+mymodid.machine.large_macerator.type=Large Macerator (Addon Example)
+mymodid.machine.large_macerator.info=Multiblock example that reuses GT's power, structure and recipe systems.
+mymodid.machine.large_macerator.parallel=Parallels: %s x voltage tier
+mymodid.machine.large_macerator.controller=Front center, middle layer
+
+# ------------------------------------------------------------------
+# 示范 3：算力机器
+# ------------------------------------------------------------------
+mymodid.machine.computation_lab.type=Computation Lab (Addon Example)
+mymodid.machine.computation_lab.info=Consumes computation from the team's wireless computation pool to run assembler recipes.
+mymodid.machine.computation_lab.requirement=Computation required: %s /tick
+mymodid.machine.computation_lab.controller=Front center, middle layer

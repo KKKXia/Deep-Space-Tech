@@ -1,0 +1,21 @@
+{
+	"modListVersion": 2,
+	"modList": [{
+		"modid": "${modId}",
+		"name": "${modName}",
+		"description": "An addon mod for GregTech: New Horizons. Reuses GT5-Unofficial's power, computation, recipe, material and multiblock systems instead of reimplementing them.",
+		"version": "${modVersion}",
+		"mcversion": "${minecraftVersion}",
+		"url": "",
+		"updateUrl": "",
+		"authorList": [],
+		"credits": "Built on GregTech 5 Unofficial (GTNH)",
+		"logoFile": "",
+		"screenshots": [],
+		"parent": "",
+		"requiredMods": ["gregtech"],
+		"dependencies": [],
+		"dependants": [],
+		"useDependencyInformation": false
+	}]
+}
