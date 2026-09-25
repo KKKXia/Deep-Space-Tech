@@ -50,14 +50,15 @@ public enum AddonItemList implements IItemContainer {
 
     /** 等级 → 物品绑定 的映射，下标 0 即 tier 1（LV）。 */
     private static final AddonItemList[] ELECTROLYSERS = { MultiTankElectrolyser_LV, MultiTankElectrolyser_MV,
-        MultiTankElectrolyser_HV, MultiTankElectrolyser_EV, MultiTankElectrolyser_IV, MultiTankElectrolyser_LuV, MultiTankElectrolyser_ZPM,
-        MultiTankElectrolyser_UV, MultiTankElectrolyser_UHV, MultiTankElectrolyser_UEV, MultiTankElectrolyser_UIV,
-        MultiTankElectrolyser_UMV };
+        MultiTankElectrolyser_HV, MultiTankElectrolyser_EV, MultiTankElectrolyser_IV, MultiTankElectrolyser_LuV,
+        MultiTankElectrolyser_ZPM, MultiTankElectrolyser_UV, MultiTankElectrolyser_UHV, MultiTankElectrolyser_UEV,
+        MultiTankElectrolyser_UIV, MultiTankElectrolyser_UMV };
 
     private static final AddonItemList[] CHEMICAL_REACTORS = { MultiTankChemicalReactor_LV, MultiTankChemicalReactor_MV,
-        MultiTankChemicalReactor_HV, MultiTankChemicalReactor_EV, MultiTankChemicalReactor_IV, MultiTankChemicalReactor_LuV,
-        MultiTankChemicalReactor_ZPM, MultiTankChemicalReactor_UV, MultiTankChemicalReactor_UHV, MultiTankChemicalReactor_UEV,
-        MultiTankChemicalReactor_UIV, MultiTankChemicalReactor_UMV };
+        MultiTankChemicalReactor_HV, MultiTankChemicalReactor_EV, MultiTankChemicalReactor_IV,
+        MultiTankChemicalReactor_LuV, MultiTankChemicalReactor_ZPM, MultiTankChemicalReactor_UV,
+        MultiTankChemicalReactor_UHV, MultiTankChemicalReactor_UEV, MultiTankChemicalReactor_UIV,
+        MultiTankChemicalReactor_UMV };
 
     public static AddonItemList multiTankElectrolyser(int tier) {
         return ELECTROLYSERS[tier - 1];

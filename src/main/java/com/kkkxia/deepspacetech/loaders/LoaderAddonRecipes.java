@@ -107,19 +107,16 @@ public final class LoaderAddonRecipes {
                     + (AddonIds.TIER_COUNT * 2)
                     + " machine conversion recipes are missing from the crafting manager");
         }
-        DeepSpaceTech.LOG.info(
-            "Verified {} machine conversion recipes in the crafting manager",
-            AddonIds.TIER_COUNT * 2);
+        DeepSpaceTech.LOG
+            .info("Verified {} machine conversion recipes in the crafting manager", AddonIds.TIER_COUNT * 2);
     }
 
     private static boolean isCraftable(AddonItemList result, ItemList source) {
         final ItemStack expected = result.get(1);
         final ItemStack ingredient = source.get(1);
         if (expected == null || ingredient == null) {
-            DeepSpaceTech.LOG.error(
-                "Conversion self-check: {} or {} has no item registered",
-                result.name(),
-                source.name());
+            DeepSpaceTech.LOG
+                .error("Conversion self-check: {} or {} has no item registered", result.name(), source.name());
             return false;
         }
 

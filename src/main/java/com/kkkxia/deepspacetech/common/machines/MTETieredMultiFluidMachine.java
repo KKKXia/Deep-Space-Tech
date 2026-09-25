@@ -538,7 +538,8 @@ public abstract class MTETieredMultiFluidMachine extends MTEBasicMachineWithReci
         final long fluidOutput = countOutputFluids(probe);
         if (stagedFluids > 0 && fluidOutput <= 0) {
             throw new IllegalStateException(
-                "Self-check " + label + " FAILED: endProcess() did not move staged fluid outputs into the output tanks");
+                "Self-check " + label
+                    + " FAILED: endProcess() did not move staged fluid outputs into the output tanks");
         }
         if (probe.mPendingOutputFluids != null) {
             throw new IllegalStateException(

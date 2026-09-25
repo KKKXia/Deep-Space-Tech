@@ -31,12 +31,10 @@ public final class LoaderAddonMachines {
     }
 
     // description 在 preInit 就被读取，此时语言文件尚未重载，用 StatCollector 只会拿到 key，故用字面量。
-    private static final String[] ELECTROLYSER_DESCRIPTION = {
-        "Multi-tank single-block electrolyzer.",
+    private static final String[] ELECTROLYSER_DESCRIPTION = { "Multi-tank single-block electrolyzer.",
         "Runs the Industrial Electrolyzer's recipe pool." };
 
-    private static final String[] CHEMICAL_REACTOR_DESCRIPTION = {
-        "Multi-tank single-block chemical reactor.",
+    private static final String[] CHEMICAL_REACTOR_DESCRIPTION = { "Multi-tank single-block chemical reactor.",
         "Runs the Large Chemical Reactor's recipe pool." };
 
     private static void registerTieredMachines() {
