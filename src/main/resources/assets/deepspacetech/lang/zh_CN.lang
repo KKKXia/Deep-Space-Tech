@@ -1,0 +1,42 @@
+# 机器显示名：键名沿用 GT 的 gt.blockmachines.<机器名>.name
+gt.blockmachines.deepspacetech.machine.addon_macerator.lv.name=示例粉碎机（LV）
+gt.blockmachines.deepspacetech.machine.addon_macerator.mv.name=示例粉碎机（MV）
+gt.blockmachines.deepspacetech.multimachine.large_macerator.name=示例大型粉碎机
+gt.blockmachines.deepspacetech.multimachine.computation_lab.name=示例算力实验室
+
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.lv.name=多流体槽电解机（LV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.mv.name=多流体槽电解机（MV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.hv.name=多流体槽电解机（HV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.ev.name=多流体槽电解机（EV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.iv.name=多流体槽电解机（IV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.luv.name=多流体槽电解机（LuV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.zpm.name=多流体槽电解机（ZPM）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uv.name=多流体槽电解机（UV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uhv.name=多流体槽电解机（UHV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uev.name=多流体槽电解机（UEV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uiv.name=多流体槽电解机（UIV）
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.umv.name=多流体槽电解机（UMV）
+
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.lv.name=多流体槽化学反应釜（LV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.mv.name=多流体槽化学反应釜（MV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.hv.name=多流体槽化学反应釜（HV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.ev.name=多流体槽化学反应釜（EV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.iv.name=多流体槽化学反应釜（IV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.luv.name=多流体槽化学反应釜（LuV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.zpm.name=多流体槽化学反应釜（ZPM）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uv.name=多流体槽化学反应釜（UV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uhv.name=多流体槽化学反应釜（UHV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uev.name=多流体槽化学反应釜（UEV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uiv.name=多流体槽化学反应釜（UIV）
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.umv.name=多流体槽化学反应釜（UMV）
+
+# 示例多方块的提示文本（dev 环境内容）
+deepspacetech.machine.large_macerator.type=大型粉碎机（示例）
+deepspacetech.machine.large_macerator.info=复用 GT 的电力、结构与配方系统的多方块示例。
+deepspacetech.machine.large_macerator.parallel=并行数：%s × 电压等级
+deepspacetech.machine.large_macerator.controller=正面中心，中间层
+
+deepspacetech.machine.computation_lab.type=算力实验室（示例）
+deepspacetech.machine.computation_lab.info=消耗队伍无线算力池中的算力来执行组装机配方。
+deepspacetech.machine.computation_lab.requirement=所需算力：%s /tick
+deepspacetech.machine.computation_lab.controller=正面中心，中间层

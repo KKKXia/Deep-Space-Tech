@@ -1,24 +1,41 @@
-# ------------------------------------------------------------------
-# 机器显示名
-# GT 的 MetaTileEntity 构造器会把 aNameRegional 注册到
-# "gt.blockmachines.<机器名>.name"，这里显式写出以便本地化与检索。
-# ------------------------------------------------------------------
+# 机器显示名：键名沿用 GT 的 gt.blockmachines.<机器名>.name
 gt.blockmachines.deepspacetech.machine.addon_macerator.lv.name=Addon Macerator (LV)
 gt.blockmachines.deepspacetech.machine.addon_macerator.mv.name=Addon Macerator (MV)
 gt.blockmachines.deepspacetech.multimachine.large_macerator.name=Addon Large Macerator
 gt.blockmachines.deepspacetech.multimachine.computation_lab.name=Addon Computation Lab
 
-# ------------------------------------------------------------------
-# 示范 2：多方块（GT 电力系统）
-# ------------------------------------------------------------------
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.lv.name=Multi-Tank Electrolyser (LV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.mv.name=Multi-Tank Electrolyser (MV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.hv.name=Multi-Tank Electrolyser (HV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.ev.name=Multi-Tank Electrolyser (EV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.iv.name=Multi-Tank Electrolyser (IV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.luv.name=Multi-Tank Electrolyser (LuV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.zpm.name=Multi-Tank Electrolyser (ZPM)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uv.name=Multi-Tank Electrolyser (UV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uhv.name=Multi-Tank Electrolyser (UHV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uev.name=Multi-Tank Electrolyser (UEV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.uiv.name=Multi-Tank Electrolyser (UIV)
+gt.blockmachines.deepspacetech.machine.multi_tank_electrolyser.umv.name=Multi-Tank Electrolyser (UMV)
+
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.lv.name=Multi-Tank Chemical Reactor (LV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.mv.name=Multi-Tank Chemical Reactor (MV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.hv.name=Multi-Tank Chemical Reactor (HV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.ev.name=Multi-Tank Chemical Reactor (EV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.iv.name=Multi-Tank Chemical Reactor (IV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.luv.name=Multi-Tank Chemical Reactor (LuV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.zpm.name=Multi-Tank Chemical Reactor (ZPM)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uv.name=Multi-Tank Chemical Reactor (UV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uhv.name=Multi-Tank Chemical Reactor (UHV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uev.name=Multi-Tank Chemical Reactor (UEV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.uiv.name=Multi-Tank Chemical Reactor (UIV)
+gt.blockmachines.deepspacetech.machine.multi_tank_chemical_reactor.umv.name=Multi-Tank Chemical Reactor (UMV)
+
+# 示例多方块的提示文本（dev 环境内容）
 deepspacetech.machine.large_macerator.type=Large Macerator (Addon Example)
 deepspacetech.machine.large_macerator.info=Multiblock example that reuses GT's power, structure and recipe systems.
 deepspacetech.machine.large_macerator.parallel=Parallels: %s x voltage tier
 deepspacetech.machine.large_macerator.controller=Front center, middle layer
 
-# ------------------------------------------------------------------
-# 示范 3：算力机器
-# ------------------------------------------------------------------
 deepspacetech.machine.computation_lab.type=Computation Lab (Addon Example)
 deepspacetech.machine.computation_lab.info=Consumes computation from the team's wireless computation pool to run assembler recipes.
 deepspacetech.machine.computation_lab.requirement=Computation required: %s /tick

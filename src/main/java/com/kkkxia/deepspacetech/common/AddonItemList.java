@@ -12,27 +12,60 @@ import gregtech.api.util.GTOreDictUnificator;
 import gregtech.api.util.GTUtility;
 
 /**
- * 本 mod 的物品索引表。
- *
- * <p>
- * 沿用 GT 的 {@link IItemContainer} 约定（GT 的 {@code ItemList}、tectech 的 {@code CustomItemList}
- * 都是这么做的），好处是配方代码可以用 {@code isStackEqual(...)} 做矿辞/NBT 感知的比较，
- * 而不是自己写 ItemStack 相等判断——这正是"避免重复造轮子"在物品层的体现。
- *
- * <p>
- * 实现体是 IItemContainer 的固定样板（GT 没有提供抽象基类，因为 enum 无法继承类），
- * 与 tectech {@code CustomItemList} 的实现保持一致，便于对照阅读。
+ * 本 mod 的物品索引表，沿用 GT 的 {@link IItemContainer} 约定（GT 的 {@code ItemList}、tectech 的 {@code CustomItemList} 亦然），
+ * 这样配方代码可用 {@code isStackEqual(...)} 做矿辞/NBT 感知的比较；实现体与 tectech {@code CustomItemList} 的样板保持一致。
  */
 public enum AddonItemList implements IItemContainer {
 
-    /** 示范 1：单方块机器（LV）。 */
     Machine_Addon_Macerator_LV,
-    /** 示范 1：单方块机器（MV）。 */
     Machine_Addon_Macerator_MV,
-    /** 示范 2：多方块控制器。 */
     Machine_Addon_Large_Macerator,
-    /** 示范 3：算力机器。 */
-    Machine_Addon_Computation_Lab;
+    Machine_Addon_Computation_Lab,
+
+    MultiTankElectrolyser_LV,
+    MultiTankElectrolyser_MV,
+    MultiTankElectrolyser_HV,
+    MultiTankElectrolyser_EV,
+    MultiTankElectrolyser_IV,
+    MultiTankElectrolyser_LuV,
+    MultiTankElectrolyser_ZPM,
+    MultiTankElectrolyser_UV,
+    MultiTankElectrolyser_UHV,
+    MultiTankElectrolyser_UEV,
+    MultiTankElectrolyser_UIV,
+    MultiTankElectrolyser_UMV,
+
+    MultiTankChemicalReactor_LV,
+    MultiTankChemicalReactor_MV,
+    MultiTankChemicalReactor_HV,
+    MultiTankChemicalReactor_EV,
+    MultiTankChemicalReactor_IV,
+    MultiTankChemicalReactor_LuV,
+    MultiTankChemicalReactor_ZPM,
+    MultiTankChemicalReactor_UV,
+    MultiTankChemicalReactor_UHV,
+    MultiTankChemicalReactor_UEV,
+    MultiTankChemicalReactor_UIV,
+    MultiTankChemicalReactor_UMV;
+
+    /** 等级 → 物品绑定 的映射，下标 0 即 tier 1（LV）。 */
+    private static final AddonItemList[] ELECTROLYSERS = { MultiTankElectrolyser_LV, MultiTankElectrolyser_MV,
+        MultiTankElectrolyser_HV, MultiTankElectrolyser_EV, MultiTankElectrolyser_IV, MultiTankElectrolyser_LuV, MultiTankElectrolyser_ZPM,
+        MultiTankElectrolyser_UV, MultiTankElectrolyser_UHV, MultiTankElectrolyser_UEV, MultiTankElectrolyser_UIV,
+        MultiTankElectrolyser_UMV };
+
+    private static final AddonItemList[] CHEMICAL_REACTORS = { MultiTankChemicalReactor_LV, MultiTankChemicalReactor_MV,
+        MultiTankChemicalReactor_HV, MultiTankChemicalReactor_EV, MultiTankChemicalReactor_IV, MultiTankChemicalReactor_LuV,
+        MultiTankChemicalReactor_ZPM, MultiTankChemicalReactor_UV, MultiTankChemicalReactor_UHV, MultiTankChemicalReactor_UEV,
+        MultiTankChemicalReactor_UIV, MultiTankChemicalReactor_UMV };
+
+    public static AddonItemList multiTankElectrolyser(int tier) {
+        return ELECTROLYSERS[tier - 1];
+    }
+
+    public static AddonItemList multiTankChemicalReactor(int tier) {
+        return CHEMICAL_REACTORS[tier - 1];
+    }
 
     private ItemStack mStack;
     private boolean mHasNotBeenSet = true;
@@ -178,12 +211,7 @@ public enum AddonItemList implements IItemContainer {
     }
 
     /**
-     * 从替代物品里取第一个 ItemStack 并复制指定数量。
-     *
-     * <p>
-     * 等价于 GT 的 {@code GTUtility.copyAmount(long, Object...)}，但那个重载已标注
-     * {@code @Deprecated}（GT 指向 {@code copyAmount(int, ItemStack)}）。addon 不该依赖
-     * 即将被移除的重载，因此这里自己实现同样的语义——这也是本项目"只锚定稳定 API"原则的一个具体体现。
+     * 自实现的等价物，取代已标注 {@code @Deprecated} 的 {@code GTUtility.copyAmount(long, Object...)}，只锚定稳定 API。
      */
     private static ItemStack copyReplacement(long aAmount, Object... aReplacements) {
         for (Object candidate : aReplacements) {

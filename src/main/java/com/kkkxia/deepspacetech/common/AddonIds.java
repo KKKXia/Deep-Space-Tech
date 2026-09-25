@@ -9,53 +9,54 @@ import gregtech.api.GregTechAPI;
 import gregtech.api.interfaces.metatileentity.IMetaTileEntity;
 
 /**
- * 本 addon 占用的机器 ID。
- *
- * <p>
- * <b>为什么必须自己管理 ID：</b>GT 的机器 ID 是全局共享的单一命名空间
- * （{@code GregTechAPI.METATILEENTITIES} 数组下标，同时也是机器物品的 damage 值），
- * 且 id 会写进存档与物品 NBT，所以不能用"运行时自增"分配——一旦注册顺序变化，
- * 老存档里的机器就会变成另一台机器。因此这里的每个 id 都是固定常量。
- *
- * <p>
- * <b>为什么只校验用到的 id、而不是要求一整段连续空闲：</b>
- * GT 的 {@code MetaTileEntityIDs} 文件头自己写着 "This does not list all used IDs"——
- * 实测确实如此：id 20000 被 {@code gt.icecreammachine} 占用，但它并不在那个枚举里。
- * 也就是说"静态挑一段看着空的区间"是不可靠的，唯一可靠的判据是加载期的运行期检查。
- * 既然只能运行期检查，就没有理由要求整段连续空闲——按实际使用的 id 逐个校验即可，
- * 既更容易找到可用 id，也不会因为"区间里某个无关 id 被占"而误报。
- *
- * <p>
- * ID 冲突在加载期直接抛异常并指出占用者，而不是等 GT 构造器抛出一句难定位的
- * "id already occupied"。
+ * 本 addon 占用的机器 ID：GT 的 id 数组是全局共享命名空间且会写进存档，故必须是固定常量，不能运行时自增。
+ * 只逐个校验实际用到的 id：GT 的 {@code MetaTileEntityIDs} 并不列全已用 id，静态判断空闲区间不可靠。
  */
 public final class AddonIds {
 
-    /**
-     * 本 addon 使用的机器 id。
-     *
-     * <p>
-     * 取值策略：GT 与各 addon 的 id 分布稀疏（32766 个里只用了约 2000 个），
-     * 这里选在高位区段以降低与 GT 后续新增机器撞号的概率。
-     * 若将来某个 id 被占用，{@link #validate()} 会在启动时报出占用者，
-     * 此时只需把对应常量改成另一个空闲值，并在 {@link #logFreeIdSuggestions()} 的帮助下确认。
-     */
+    /** 电压等级数：tier 1..12 即 LV..UMV，与 GT 单方块电解机/化学反应釜的覆盖范围一致。 */
+    public static final int TIER_COUNT = 12;
+
     public static final int MACHINE_ADDON_MACERATOR_LV = 31600;
     public static final int MACHINE_ADDON_MACERATOR_MV = 31601;
     public static final int MACHINE_ADDON_LARGE_MACERATOR = 31602;
     public static final int MACHINE_ADDON_COMPUTATION_LAB = 31603;
 
-    /** 本 addon 实际使用的全部 id，供校验与调试输出复用。 */
-    private static final int[] USED_IDS = { MACHINE_ADDON_MACERATOR_LV, MACHINE_ADDON_MACERATOR_MV,
-        MACHINE_ADDON_LARGE_MACERATOR, MACHINE_ADDON_COMPUTATION_LAB };
+    /** 多流体槽电解机 ID 基址：第 tier 级 = {@code MULTI_TANK_ELECTROLYSER_BASE + tier}。 */
+    public static final int MULTI_TANK_ELECTROLYSER_BASE = 31610;
+    /** 多流体槽化学反应釜 ID 基址：第 tier 级 = {@code MULTI_TANK_CHEMICAL_REACTOR_BASE + tier}。 */
+    public static final int MULTI_TANK_CHEMICAL_REACTOR_BASE = 31630;
+
+    private static final int[] USED_IDS = buildUsedIds();
 
     private AddonIds() {}
 
-    /**
-     * 注册前预检全部用到的 id。
-     *
-     * @throws IllegalStateException 有 id 已被 GT 或其它 addon 占用
-     */
+    public static int multiTankElectrolyserId(int tier) {
+        return MULTI_TANK_ELECTROLYSER_BASE + tier;
+    }
+
+    public static int multiTankChemicalReactorId(int tier) {
+        return MULTI_TANK_CHEMICAL_REACTOR_BASE + tier;
+    }
+
+    private static int[] buildUsedIds() {
+        final List<Integer> ids = new ArrayList<>();
+        ids.add(MACHINE_ADDON_MACERATOR_LV);
+        ids.add(MACHINE_ADDON_MACERATOR_MV);
+        ids.add(MACHINE_ADDON_LARGE_MACERATOR);
+        ids.add(MACHINE_ADDON_COMPUTATION_LAB);
+        for (int tier = 1; tier <= TIER_COUNT; tier++) {
+            ids.add(multiTankElectrolyserId(tier));
+            ids.add(multiTankChemicalReactorId(tier));
+        }
+        final int[] result = new int[ids.size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = ids.get(i);
+        }
+        return result;
+    }
+
+    /** 注册前预检全部用到的 id，冲突时直接抛异常并指出占用者。 */
     public static void validate() {
         final List<String> conflicts = new ArrayList<>();
         for (int id : USED_IDS) {
@@ -71,16 +72,10 @@ public final class AddonIds {
         }
     }
 
-    /**
-     * 调试用：输出一段可用的连续空闲 id。
-     *
-     * <p>
-     * 当需要搬迁 id 时打开 {@code debugLogging}，启动日志会直接给出一个可用区段，
-     * 不必再靠猜或者翻 GT 的巨型枚举。
-     */
+    /** 调试用：输出一段可用的连续空闲 id（搬迁 id 时打开 {@code debugLogging}）。 */
     public static void logFreeIdSuggestions() {
         final int needed = USED_IDS.length;
-        // 从高位区段往上找：addon 更适合占用高位 id，避免与 GT 后续新增的低位机器挤在一起
+        // 从高位区段找起：addon 占高位 id，避免与 GT 后续新增的低位机器挤在一起
         final int suggestion = findFreeBlock(needed, 20000);
         if (suggestion > 0) {
             DeepSpaceTech.LOG
