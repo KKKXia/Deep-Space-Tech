@@ -36,5 +36,5 @@
 dependencies {
     // 唯一的依赖：GT5-Unofficial 的 POM 已把 StructureLib / GTNHLib / IC2 / NEI / ModularUI2 等
     // 全部编译期依赖以 compile scope 传递出来，重复声明只会引入版本漂移。
-    api("com.github.GTNewHorizons:GT5-Unofficial:5.09.54.166:dev")
+    api("com.github.GTNewHorizons:GT5-Unofficial:5.09.54.183:dev")
 }
